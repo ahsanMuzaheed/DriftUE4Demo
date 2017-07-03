@@ -1,0 +1,21 @@
+[submodule "Source/Drift"]
+	path = Source/Drift
+	url = git@github.com:dgnorth/DriftUE4Base.git
+[submodule "Plugins/Drift/DriftAnalytics"]
+	path = Plugins/Drift/DriftAnalytics
+	url = git@github.com:dgnorth/DriftUE4Analytics.git
+[submodule "Plugins/Drift/DriftSteam"]
+	path = Plugins/Drift/DriftSteam
+	url = git@github.com:dgnorth/DriftUE4Steam.git
+[submodule "Plugins/Drift/DriftOculus"]
+	path = Plugins/Drift/DriftOculus
+	url = git@github.com:dgnorth/DriftUE4Oculus.git
+[submodule "Plugins/Drift/DriftGooglePlay"]
+	path = Plugins/Drift/DriftGooglePlay
+	url = git@github.com:dgnorth/DriftUE4GooglePlay.git
+[submodule "Plugins/Drift/OnlineSubsystemDrift"]
+	path = Plugins/Drift/OnlineSubsystemDrift
+	url = git@github.com:dgnorth/OnlineSubsystemDrift.git
+[submodule "Plugins/Drift/DriftGameCenter"]
+	path = Plugins/Drift/DriftGameCenter
+	url = git@github.com:dgnorth/DriftUE4GameCenter.git

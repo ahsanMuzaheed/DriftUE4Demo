@@ -1,0 +1,31 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "4.16",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "DriftUE4Demo",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "DriftGooglePlay",
+			"Enabled": true
+		},
+		{
+			"Name": "DriftOculus",
+			"Enabled": false
+		},
+		{
+			"Name": "DriftSteam",
+			"Enabled": true
+		},
+		{
+			"Name": "DriftAnalytics",
+			"Enabled": true
+		}
+	]
+}
