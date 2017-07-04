@@ -1,9 +1,14 @@
 
+# Unreal Engine
 Binaries/
 Intermediate/
 Saved/
 
+# Visual Studio
 .vs/
 *.VC.db
 *.sln
+
+# Xcode
+*.xcworkspace/
 
