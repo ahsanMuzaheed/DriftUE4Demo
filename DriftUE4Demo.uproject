@@ -26,6 +26,10 @@
 		{
 			"Name": "DriftAnalytics",
 			"Enabled": true
+		},
+		{
+			"Name": "DriftGameCenter",
+			"Enabled": true
 		}
 	]
 }
