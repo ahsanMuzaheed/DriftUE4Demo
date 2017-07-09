@@ -1,6 +1,9 @@
+
+Drift UnrealEngine Integration
+
 MIT License
 
-Copyright (c) 2014-2017 Directive Games Limited
+Copyright (c) 2016-2017 Directive Games Limited. All Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +22,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Other dependencies and licenses:
+
+This project uses a subset of RapidJSON distributed via the MIT license.
+See Source/Drift/RapidJson/Public/rapidjson/license.txt for details.
+
+Drift Unreal® Engine Integration uses the Unreal® Engine. Unreal® is a
+trademark or registered trademark of Epic Games, Inc. in the United States of
+America and elsewhere.
+
+Unreal® Engine, Copyright 1998 – 2017, Epic Games, Inc. All rights reserved.
