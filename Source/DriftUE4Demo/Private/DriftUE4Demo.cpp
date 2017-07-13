@@ -14,3 +14,5 @@
 #include "Modules/ModuleManager.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, DriftUE4Demo, "DriftUE4Demo" );
+
+DEFINE_LOG_CATEGORY(LogDriftDemo);
