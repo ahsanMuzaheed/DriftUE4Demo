@@ -5,6 +5,9 @@
 #include "DriftAPI.h"
 #include "DriftUtils.h"
 
+#include "Engine/LocalPlayer.h"
+#include "GameFramework/PlayerController.h"
+#include "GameFramework/PlayerState.h"
 #include "OnlineSubsystemUtils.h"
 
 
@@ -13,7 +16,7 @@ void UDriftUE4DemoGameInstance::Init()
     Super::Init();
 
     /**
-     * Handle when the connection state changes
+     * Handle when the connection state changes.
      */
     if (auto drift = FDriftWorldHelper(GetWorld()).GetInstance())
     {
@@ -21,7 +24,7 @@ void UDriftUE4DemoGameInstance::Init()
     }
 
     /**
-     * Dedicated servers also login, but handle this elsewhere
+     * Dedicated servers also login, but are handled elsewhere.
      */
     if (IsRunningDedicatedServer())
     {
@@ -29,7 +32,7 @@ void UDriftUE4DemoGameInstance::Init()
     }
 
     /**
-     * Handle player login completion.
+     * Handle player 0 login completion.
      */
     auto identityInterface = Online::GetIdentityInterface(GetWorld());
     if (identityInterface.IsValid())
@@ -42,7 +45,7 @@ void UDriftUE4DemoGameInstance::Init()
 void UDriftUE4DemoGameInstance::Shutdown()
 {
     /**
-    * Unreal unfortunately offers no hook that we can use to let the plugin handle this automatically
+    * Unreal unfortunately offers no hook that we can use to let the plugin handle this automatically.
     */
     if (auto drift = FDriftWorldHelper(GetWorld()).GetInstance())
     {
@@ -77,12 +80,18 @@ void UDriftUE4DemoGameInstance::HandleLoginComplete(int32 LocalUserNum, bool suc
         */
         if (auto localPlayer = GetLocalPlayerByIndex(LocalUserNum))
         {
+            /**
+             * We need a TSharedPtr<FUniqueNetId>, which this callback signature doesn't provide,
+             * and ShowLoginUI(), which would give us the right type,  is not appropriate for all
+             * auth providers.
+             */
             auto uniqueId = localPlayer->GetUniqueNetIdFromCachedControllerId();
+            localPlayer->SetCachedUniqueNetId(uniqueId);
+
             if (auto playerController = localPlayer->GetPlayerController(GetWorld()))
             {
                 if (auto playerState = playerController->PlayerState)
                 {
-                    localPlayer->SetCachedUniqueNetId(uniqueId);
                     playerState->SetUniqueId(uniqueId);
                 }
             }
