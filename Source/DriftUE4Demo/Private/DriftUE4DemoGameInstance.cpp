@@ -12,16 +12,25 @@ void UDriftUE4DemoGameInstance::Init()
 {
     Super::Init();
 
+    /**
+     * Handle when the connection state changes
+     */
     if (auto drift = FDriftWorldHelper(GetWorld()).GetInstance())
     {
         drift->OnConnectionStateChanged().AddUObject(this, &UDriftUE4DemoGameInstance::HandleConnectionStateChanged);
     }
 
+    /**
+     * Dedicated servers also login, but handle this elsewhere
+     */
     if (IsRunningDedicatedServer())
     {
         return;
     }
 
+    /**
+     * Handle player login completion.
+     */
     auto identityInterface = Online::GetIdentityInterface(GetWorld());
     if (identityInterface.IsValid())
     {
@@ -60,9 +69,11 @@ void UDriftUE4DemoGameInstance::HandleLoginComplete(int32 LocalUserNum, bool suc
     if (success)
     {
         /**
+        * The UniqueNetId is always from Drift, even if a secondary auth provider, like Steam, is used.
+        *
         * The UniqueNetId must be cached on the local player and player state
         * for sessions to work. It's not clear why this is not done automatically
-        * by the engine.
+        * by the engine, except when called through blueprints. See ShowLoginUICallbackProxy.
         */
         if (auto localPlayer = GetLocalPlayerByIndex(LocalUserNum))
         {
